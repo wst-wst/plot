@@ -7,6 +7,7 @@ tags: [夏日，旅行]
 excerpt: 炎热的七月底
 captions:
   - 旺记咖啡
+  - 澳门疯堂斜巷
 alts:
 ---
 

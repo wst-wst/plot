@@ -9,9 +9,7 @@
 """
 
 import json
-import math
 import re
-import struct
 import subprocess
 import sys
 from datetime import datetime
@@ -59,47 +57,6 @@ def parse_front_matter(text):
         else:
             meta[key] = value.strip('"\'')
     return meta, body
-
-
-def image_size(path):
-    """读取 JPEG / PNG 的宽高，不依赖第三方库。"""
-    with open(path, 'rb') as f:
-        head = f.read(32)
-        if head[:8] == b'\x89PNG\r\n\x1a\n':
-            w, h = struct.unpack('>II', head[16:24])
-            return w, h
-        if head[:2] != b'\xff\xd8':
-            return None
-        f.seek(2)
-        while True:
-            byte = f.read(1)
-            if not byte:
-                return None
-            if byte != b'\xff':
-                continue
-            marker = f.read(1)
-            while marker == b'\xff':
-                marker = f.read(1)
-            if not marker:
-                return None
-            code = marker[0]
-            if code in (0xd8, 0xd9) or 0xd0 <= code <= 0xd7:
-                continue
-            length = struct.unpack('>H', f.read(2))[0]
-            if 0xc0 <= code <= 0xcf and code not in (0xc4, 0xc8, 0xcc):
-                data = f.read(5)
-                h, w = struct.unpack('>HH', data[1:5])
-                return w, h
-            f.seek(length - 2, 1)
-
-
-def ratio_of(path):
-    size = image_size(path)
-    if not size:
-        return '4 / 3'
-    w, h = size
-    g = math.gcd(w, h)
-    return f'{w // g} / {h // g}'
 
 
 def paragraphs(body):
@@ -155,7 +112,6 @@ def load_post(folder):
         'location': str(meta.get('location') or ''),
         'city': str(meta.get('city') or ''),
         'tags': meta.get('tags') or [],
-        'ratio': str(meta.get('ratio') or ratio_of(images[0])),
         'excerpt': str(meta.get('excerpt') or ''),
         'body': paragraphs(body),
         'photos': photos,

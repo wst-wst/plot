@@ -10,6 +10,7 @@
 
 import json
 import re
+import shutil
 import subprocess
 import sys
 from datetime import datetime
@@ -19,6 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = ROOT / 'content' / 'posts'
 OUT_FILE = ROOT / 'assets' / 'js' / 'data.js'
 IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.webp'}
+RAW_EXTS = {'.heic', '.heif'}
 
 
 def die(msg):
@@ -69,11 +71,35 @@ def paragraphs(body):
     return result
 
 
+def convert_heic(folder):
+    """把文件夹里的 HEIC / HEIF 转成同名 JPG，浏览器对 HEIC 支持不一致。"""
+    raws = sorted(p for p in folder.iterdir() if p.suffix.lower() in RAW_EXTS)
+    if not raws:
+        return
+
+    sips = shutil.which('sips')
+    if not sips:
+        die(f'{folder.name} 里有 HEIC，但没找到 macOS 的 sips，请先手动转成 JPG')
+
+    for raw in raws:
+        out = raw.with_suffix('.jpg')
+        if out.exists():
+            print(f'  跳过 {raw.name}：同名的 {out.name} 已存在')
+            continue
+        subprocess.run(
+            [sips, '-s', 'format', 'jpeg', '-s', 'formatOptions', '88',
+             '-Z', '2560', str(raw), '--out', str(out)],
+            check=True, capture_output=True
+        )
+        print(f'  已转换 {raw.name} → {out.name}')
+
+
 def load_post(folder):
     md_file = folder / 'index.md'
     if not md_file.exists():
         die(f'{folder.name} 缺少 index.md')
 
+    convert_heic(folder)
     meta, body = parse_front_matter(md_file.read_text(encoding='utf-8'))
 
     if meta.get('draft') in ('true', 'yes', 1):
@@ -91,7 +117,7 @@ def load_post(folder):
         key=lambda p: p.name.lower()
     )
     if not images:
-        die(f'{folder.name} 里没有照片，至少放一张 .jpg / .png')
+        die(f'{folder.name} 里没有照片，至少放一张 .jpg / .png（HEIC 会自动转成 JPG）')
 
     captions = meta.get('captions') or []
     alts = meta.get('alts') or []

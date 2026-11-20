@@ -66,11 +66,6 @@ const PLOG_POSTS = [
         src: 'assets/img/morning-market-1.jpg',
         alt: '成都早市上摆满蔬菜和辣椒的摊位',
         caption: '八点零五分，人最多的时候'
-      },
-      {
-        src: 'assets/img/morning-market-2.jpg',
-        alt: '竹篮里刚出锅撒着芝麻的锅盔',
-        caption: '两块五一个，烫手'
       }
     ]
   },
@@ -92,79 +87,6 @@ const PLOG_POSTS = [
         src: 'assets/img/seaside-wind-1.jpg',
         alt: '青岛小麦岛被风吹弯的草地和远处的海',
         caption: '风大到说话要喊'
-      },
-      {
-        src: 'assets/img/seaside-wind-2.jpg',
-        alt: '一顶草帽挂在海边黑色礁石上',
-        caption: '帽子找到了，人有点喘'
-      }
-    ]
-  },
-  {
-    id: 'night-subway',
-    title: '夜班地铁',
-    date: '2026-08-30',
-    location: '北京 · 10 号线',
-    city: '北京',
-    tags: ['城市', '日常'],
-    ratio: '4 / 3',
-    excerpt: '末班车里，每个人都有一张不想说话的脸。',
-    body: [
-      '加完班已经十一点。车厢很空，对面坐着一个抱着花的人，花是白色的，用报纸包着。',
-      '我们在同一站下车。他往东，我往西。'
-    ],
-    photos: [
-      {
-        src: 'assets/img/night-subway-1.jpg',
-        alt: '深夜地铁车厢里抱着白花的乘客',
-        caption: '23:04，10 号线'
-      }
-    ]
-  },
-  {
-    id: 'iced-americano',
-    title: '一杯冰美式的下午',
-    date: '2026-07-16',
-    location: '上海 · 武康路',
-    city: '上海',
-    tags: ['日常', '食物'],
-    ratio: '1 / 1',
-    excerpt: '梧桐树影落在杯壁上，喝到最后都没舍得走。',
-    body: [
-      '七月的武康路很晒，梧桐叶把光切成碎片。咖啡店门口只有一张小桌子，我坐了整整一个下午。',
-      '店主养的猫在脚边睡了一觉，醒来伸了个很长的懒腰，然后又睡了。'
-    ],
-    photos: [
-      {
-        src: 'assets/img/iced-americano-1.jpg',
-        alt: '武康路咖啡店小桌上的一杯冰美式',
-        caption: '第二杯，冰块已经化了一半'
-      },
-      {
-        src: 'assets/img/iced-americano-2.jpg',
-        alt: '阳光咖啡店地板上睡着的橘猫',
-        caption: '它睡了一下午，我看了它一下午'
-      }
-    ]
-  },
-  {
-    id: 'after-rain-alley',
-    title: '雨后的巷子',
-    date: '2026-06-02',
-    location: '苏州 · 平江路',
-    city: '苏州',
-    tags: ['城市', '光影'],
-    ratio: '4 / 3',
-    excerpt: '青石板把整条巷子又照了一遍。',
-    body: [
-      '雨停得很突然。屋檐还在滴水，巷子里的石板像镜子，把白墙和灯笼都翻了过来。',
-      '一个撑着伞的老人在巷口站了一会儿，收伞，走进去。'
-    ],
-    photos: [
-      {
-        src: 'assets/img/after-rain-alley-1.jpg',
-        alt: '雨后苏州平江路的石板路映着白墙和灯笼',
-        caption: '雨停后十分钟，水面最完整'
       }
     ]
   },
@@ -186,37 +108,6 @@ const PLOG_POSTS = [
         src: 'assets/img/spring-long-walk-1.jpg',
         alt: '春天西湖边垂柳和小路',
         caption: '苏堤中段，风刚刚好'
-      },
-      {
-        src: 'assets/img/spring-long-walk-2.jpg',
-        alt: '湖面上两只正在吵架的绿头鸭',
-        caption: '吵了很久，好像也没分出胜负'
-      }
-    ]
-  },
-  {
-    id: 'new-year-kitchen',
-    title: '年夜饭之前的厨房',
-    date: '2026-02-11',
-    location: '家 · 厨房',
-    city: '北京',
-    tags: ['日常', '食物', '冬日'],
-    ratio: '4 / 3',
-    excerpt: '一年里厨房最挤、最吵、也最像家的一个晚上。',
-    body: [
-      '下午三点开始，厨房就再也没空过。我妈负责炖，我爸负责切，我负责被嫌弃。',
-      '窗玻璃上全是水汽，我用手指画了个笑脸，五秒钟就被热气抹平了。'
-    ],
-    photos: [
-      {
-        src: 'assets/img/new-year-kitchen-1.jpg',
-        alt: '年夜饭前热气腾腾的厨房和案板上的菜',
-        caption: '15:20，锅已经不够用了'
-      },
-      {
-        src: 'assets/img/new-year-kitchen-2.jpg',
-        alt: '雾气蒙蒙的厨房窗玻璃上画的笑脸',
-        caption: '存活了大概五秒'
       }
     ]
   }

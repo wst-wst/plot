@@ -50,7 +50,7 @@ const PLOG_POSTS = [
   },
   {
     "id": "kumano-kodo-nakahechi",
-    "title": "熊野古道中边路徒步第一天",
+    "title": "熊野古道中边路徒步",
     "date": "2026-10-01",
     "location": "和歌山 · 纪伊田边",
     "city": "",
@@ -59,7 +59,7 @@ const PLOG_POSTS = [
       "和歌山",
       "熊野古道"
     ],
-    "excerpt": "中边路全踏破记录",
+    "excerpt": "热身第一天",
     "body": [
       "从「纪伊田边 Kii-Tanabe」出发，坐巴士前往「滝尻王子 Takajiri-oji」，正式开始中边路徒步。",
       "在「熊野古道馆」购买了熊铃，在「滝尻王子」打卡中边路起点纪念石。",
@@ -69,12 +69,12 @@ const PLOG_POSTS = [
     "photos": [
       {
         "src": "content/posts/kumano-kodo-nakahechi/01.JPG",
-        "alt": "熊野古道中边路徒步第一天，中边路起点「滝尻王子」",
+        "alt": "熊野古道中边路徒步，中边路起点「滝尻王子」",
         "caption": "中边路起点「滝尻王子」"
       },
       {
         "src": "content/posts/kumano-kodo-nakahechi/02.JPG",
-        "alt": "熊野古道中边路徒步第一天，「潮见峠越」休息所",
+        "alt": "熊野古道中边路徒步，「潮见峠越」休息所",
         "caption": "「潮见峠越」休息所"
       }
     ]

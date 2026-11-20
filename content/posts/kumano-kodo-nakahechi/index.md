@@ -1,10 +1,10 @@
 ---
-title: 熊野古道中边路徒步第一天
+title: 熊野古道中边路徒步
 date: 2026-10-01
 location: 和歌山 · 纪伊田边
 city: 
 tags: [大阪, 和歌山, 熊野古道]
-excerpt: 中边路全踏破记录
+excerpt: 热身第一天
 captions:
   - 中边路起点「滝尻王子」
   - 「潮见峠越」休息所

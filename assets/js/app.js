@@ -129,6 +129,7 @@
 
       const block = document.createElement('section');
       block.className = 'year-block';
+      block.id = `year-${year}`;
 
       const head = document.createElement('div');
       head.className = 'year-head';
@@ -150,7 +151,60 @@
       block.append(head, grid);
       timeline.appendChild(block);
     });
+
+    renderYearRail(years);
   }
+
+  /* ---------- 年份时间轴 ---------- */
+  const yearRail = document.getElementById('yearRail');
+  let railYears = [];
+
+  function renderYearRail(years) {
+    railYears = years;
+    yearRail.hidden = years.length < 2;
+    yearRail.innerHTML = '';
+    years.forEach(year => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'year-rail-item';
+      btn.textContent = year;
+      btn.setAttribute('aria-label', `跳到 ${year} 年`);
+      btn.addEventListener('click', () => {
+        document.getElementById(`year-${year}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      yearRail.appendChild(btn);
+    });
+    syncRail();
+  }
+
+  function syncRail() {
+    if (!railYears.length) return;
+
+    let active = 0;
+    railYears.forEach((year, i) => {
+      const el = document.getElementById(`year-${year}`);
+      if (el && el.getBoundingClientRect().top <= 140) active = i;
+    });
+
+    [...yearRail.children].forEach((btn, i) => {
+      btn.classList.toggle('is-active', i === active);
+      if (i === active) btn.setAttribute('aria-current', 'true');
+      else btn.removeAttribute('aria-current');
+    });
+
+    const start = timeline.getBoundingClientRect().top + window.scrollY;
+    yearRail.classList.toggle('is-visible', window.scrollY > start - 500);
+  }
+
+  let railTick = false;
+  window.addEventListener('scroll', () => {
+    if (railTick) return;
+    railTick = true;
+    requestAnimationFrame(() => {
+      railTick = false;
+      syncRail();
+    });
+  }, { passive: true });
 
   /* ---------- 详情浮层 ---------- */
   function renderLightbox(post) {

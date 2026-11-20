@@ -3,29 +3,6 @@
 
 const PLOG_POSTS = [
   {
-    "id": "october-windowsill",
-    "title": "十月的窗台",
-    "date": "2026-10-28",
-    "location": "北京 · 家里",
-    "city": "北京",
-    "tags": [
-      "日常",
-      "光影"
-    ],
-    "excerpt": "下午四点，光会准时爬上这面墙。",
-    "body": [
-      "搬到这间房子以后，最先喜欢上的是西边这扇窗。十月的下午四点，光会斜斜地铺到书架上，把书脊照成一片金色。",
-      "那天没做什么正经事。泡了茶，翻了两页书，然后一直看着灰尘在光里飘。"
-    ],
-    "photos": [
-      {
-        "src": "content/posts/october-windowsill/01.jpg",
-        "alt": "十月下午的阳光照在书架和窗台的茶杯上",
-        "caption": "16:07，一年里最舒服的角度"
-      }
-    ]
-  },
-  {
     "id": "shirahama-sea",
     "title": "前往白滨",
     "date": "2026-10-07",

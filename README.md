@@ -1,6 +1,6 @@
 # wst plog
 
-生活影像记录站：照片为主，配短文、日期与标签。纯静态 HTML / CSS / JavaScript，零依赖、零构建，直接托管在 GitHub Pages。
+生活影像记录站：照片为主，配短文、日期与标签。内容用 Markdown 管理，由 `tools/build.py` 生成数据文件，页面是纯静态 HTML / CSS / JavaScript，托管在 GitHub Pages。
 
 线上地址：https://wst-wst.github.io/plot
 
@@ -12,49 +12,71 @@ python3 -m http.server 8000
 
 然后打开 http://localhost:8000 。
 
-## 新增一篇记录
+## 写一篇新记录
 
-所有内容集中在 `assets/js/data.js` 的 `PLOG_POSTS` 数组里，追加一个对象即可：
+每篇记录是 `content/posts/` 下的一个文件夹，文件夹名就是这篇的 id（用于分享链接 `#p-<id>`）：
 
-```js
-{
-  id: 'unique-slug',            // 唯一标识，用于分享链接 #p-unique-slug
-  title: '标题',
-  date: '2026-12-01',
-  location: '城市 · 具体地点',
-  city: '城市',                 // 用于统计「座城市」
-  tags: ['旅行', '冬日'],        // 首页筛选标签
-  ratio: '4 / 3',               // 封面比例：4 / 3、3 / 4 或 1 / 1
-  excerpt: '一句话摘要，显示在卡片上',
-  body: ['正文第一段', '正文第二段'],
-  photos: [
-    {
-      src: '图片地址',
-      alt: '图片描述（无障碍与 SEO）',
-      caption: '图片下方的小字说明'
-    }
-  ]
-}
+```
+content/posts/harbin-first-snow/
+├── index.md        # 正文 + 元信息
+├── 01.jpg          # 照片，按文件名顺序展示
+└── 02.jpg
 ```
 
-换成自己的照片时，把图片放进新建的 `assets/img/` 目录，`src` 写成相对路径即可，例如 `assets/img/2026-12-01-01.jpg`。
+`index.md` 的写法：
 
-首页会按 `date` 的年份自动分组，无需手动维护年份标题。
+```md
+---
+title: 哈尔滨的第一场雪
+date: 2026-11-14
+location: 哈尔滨 · 中央大街
+city: 哈尔滨
+tags: [旅行, 冬日]
+excerpt: 雪落下来的时候，整条街忽然安静了。
+captions:
+  - 17:42，街灯刚亮起来
+  - 手里那块红薯，是那天最暖的东西
+---
+
+中央大街的石头路面被雪填平了棱角，走起来有点滑。
+
+我在一家旧书店门口站了很久。老板把收音机音量调小。
+```
+
+- 空行分隔段落，段落里的手动换行会被自动合并
+- `captions` 可选，按照片文件名顺序一一对应；不写就不显示图片说明
+- `alts` 可选，用于图片无障碍描述，默认用标题拼接说明
+- `ratio` 可选，封面比例；不写会从第一张照片自动计算
+- 想先存草稿不发布：加一行 `draft: true`
+- 照片直接丢进同一个文件夹即可，支持 jpg / png / webp
+
+改完后运行：
+
+```bash
+python3 tools/build.py          # 只重新生成 assets/js/data.js
+python3 tools/build.py --push   # 生成并自动提交、推送到 GitHub
+```
+
+推上去约 1 分钟后线上生效。
+
+**删除**一篇：删掉整个文件夹，重新运行 `build.py --push`。
+**修改**：直接改 `index.md` 或替换文件夹里的图片，再运行一次。
 
 ## 首屏随机照片
 
-进入首页时，会从 `data.js` 所有照片里随机抽 5 张铺满首屏。用两侧箭头、键盘 ← → 或手机左右滑动切换，顺序每次刷新都不同，不需要额外配置。
+进入首页时，会从所有照片里随机抽 5 张铺满首屏。用两侧箭头、键盘 ← → 或手机左右滑动切换，顺序每次刷新都不同，不需要额外配置。
 
 ## 目录结构
 
 ```
 .
 ├── index.html            # 首页：随机照片首屏 + 按年份分组的记录图流
+├── content/posts/        # 记录：一篇一个文件夹（index.md + 照片）
+├── tools/build.py        # 扫描 content/posts 生成 data.js
 ├── assets/
 │   ├── css/style.css     # 全部样式
-│   ├── img/              # 图片
 │   └── js/
-│       ├── data.js       # 记录数据（新增内容只改这里）
+│       ├── data.js       # 自动生成，不要手改
 │       ├── showcase.js   # 首屏随机 5 张照片与左右切换
 │       └── app.js        # 年份分组、筛选、详情浮层、滚动动效
 ├── .nojekyll             # 跳过 Jekyll 处理

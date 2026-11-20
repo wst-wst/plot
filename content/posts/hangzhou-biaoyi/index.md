@@ -6,6 +6,7 @@ city: 杭州
 tags: [徒步]
 excerpt: 
 captions:
+  - 远眺风景
   - 标毅线轨迹
 alts:
 ---

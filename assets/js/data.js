@@ -3,6 +3,27 @@
 
 const PLOG_POSTS = [
   {
+    "id": "hangzhou-biaoyi",
+    "title": "杭州标毅线拿下！",
+    "date": "2026-10-31",
+    "location": "浙江 · 杭州",
+    "city": "杭州",
+    "tags": [
+      "徒步"
+    ],
+    "excerpt": "",
+    "body": [
+      "第一次标毅线徒步，艰苦拿下！"
+    ],
+    "photos": [
+      {
+        "src": "content/posts/hangzhou-biaoyi/01.jpg",
+        "alt": "杭州标毅线拿下！，标毅线轨迹",
+        "caption": "标毅线轨迹"
+      }
+    ]
+  },
+  {
     "id": "shirahama-sea",
     "title": "前往白滨",
     "date": "2026-10-07",

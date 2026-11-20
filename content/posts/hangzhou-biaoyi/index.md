@@ -1,10 +1,10 @@
 ---
-title: 杭州标毅线拿下！
+title: 杭州标毅线
 date: 2026-10-31
 location: 浙江 · 杭州
 city: 杭州
 tags: [徒步]
-excerpt: 
+excerpt: 艰苦拿下！
 captions:
   - 远眺风景
   - 标毅线轨迹

@@ -84,5 +84,29 @@ const PLOG_POSTS = [
         "caption": "澳门疯堂斜巷"
       }
     ]
+  },
+  {
+    "id": "kunming",
+    "title": "昆明",
+    "date": "2024-12-28",
+    "location": "云南 · 昆明",
+    "city": "昆明",
+    "tags": [
+      "旅行"
+    ],
+    "excerpt": "",
+    "body": [],
+    "photos": [
+      {
+        "src": "content/posts/kunming/01.jpg",
+        "alt": "昆明，独脚海鸥",
+        "caption": "独脚海鸥"
+      },
+      {
+        "src": "content/posts/kunming/02.JPG",
+        "alt": "昆明，展翅",
+        "caption": "展翅"
+      }
+    ]
   }
 ];

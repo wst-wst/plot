@@ -143,6 +143,11 @@ const PLOG_POSTS = [
         "src": "content/posts/macao/01.JPG",
         "alt": "澳门的那个夏天，旺记咖啡",
         "caption": "旺记咖啡"
+      },
+      {
+        "src": "content/posts/macao/02.JPG",
+        "alt": "澳门的那个夏天，澳门疯堂斜巷",
+        "caption": "澳门疯堂斜巷"
       }
     ]
   }

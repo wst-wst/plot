@@ -486,8 +486,6 @@ main {
   transform: translateY(-50%);
 }
 
-.year-rail-item:hover { color: var(--ink-soft); }
-
 .year-rail-item.is-active {
   font-family: var(--serif);
   font-size: 15px;
@@ -498,6 +496,27 @@ main {
   width: 16px;
   height: 2px;
   opacity: 1;
+}
+
+/* 悬停时：指到的年份放大，其余年份收缩 */
+@media (hover: hover) {
+  .year-rail:hover .year-rail-item {
+    opacity: 0.45;
+    font-size: 10px;
+  }
+
+  .year-rail:hover .year-rail-item:hover {
+    opacity: 1;
+    font-size: 21px;
+    font-family: var(--serif);
+    color: var(--ink);
+  }
+
+  .year-rail:hover .year-rail-item:hover::after {
+    width: 20px;
+    height: 2px;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 1299px) {

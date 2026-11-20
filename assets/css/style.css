@@ -22,7 +22,6 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
@@ -135,34 +134,42 @@ main {
   padding: 0 32px 96px;
 }
 
-/* ============ 首屏随机照片 ============ */
+/* ============ 首屏随机照片（悬浮玻璃卡片） ============ */
 .showcase {
   position: relative;
-  margin-inline: calc(50% - 50vw);
-  height: clamp(420px, 84svh, 760px);
+  margin-top: 38px;
+  padding: 10px;
+  border-radius: 28px;
+  background: rgba(255, 253, 248, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 40px 80px -46px rgba(27, 25, 22, 0.5),
+    0 12px 30px -22px rgba(27, 25, 22, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px) saturate(1.06);
+  -webkit-backdrop-filter: blur(16px) saturate(1.06);
+}
+
+.showcase-stage {
+  position: relative;
+  height: clamp(340px, 62svh, 600px);
+  border-radius: 20px;
   overflow: hidden;
-  background: #14120f;
-  isolation: isolate;
+  background: rgba(27, 25, 22, 0.05);
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.showcase::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 160px;
-  background: linear-gradient(to top, rgba(18, 16, 13, 0.55), rgba(18, 16, 13, 0));
-  pointer-events: none;
-  z-index: 1;
-}
-
-.showcase-stage { position: absolute; inset: 0; }
+.showcase-stage:active { cursor: grabbing; }
 
 .showcase-slide {
   position: absolute;
   inset: 0;
   margin: 0;
   opacity: 0;
-  transition: opacity 0.85s var(--ease);
+  transition: opacity 0.75s var(--ease);
 }
 
 .showcase-slide.is-active { opacity: 1; }
@@ -172,49 +179,69 @@ main {
   height: 100%;
   object-fit: cover;
   filter: saturate(0.96);
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.showcase-slide::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 120px;
+  background: linear-gradient(to top, rgba(18, 16, 13, 0.45), rgba(18, 16, 13, 0));
+  pointer-events: none;
 }
 
 .showcase-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: 3;
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 253, 248, 0.32);
-  background: rgba(24, 21, 18, 0.28);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: rgba(255, 253, 248, 0.92);
-  font-size: 22px;
+  border: 1px solid rgba(255, 253, 248, 0.45);
+  background: rgba(255, 253, 248, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(255, 253, 248, 0.95);
+  font-size: 20px;
   line-height: 1;
-  transition: background 0.22s var(--ease), border-color 0.22s var(--ease);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease), background 0.22s var(--ease), border-color 0.22s var(--ease);
 }
+
+.showcase:hover .showcase-nav,
+.showcase-nav:focus-visible { opacity: 1; }
 
 .showcase-nav:hover {
-  background: rgba(24, 21, 18, 0.52);
-  border-color: rgba(255, 253, 248, 0.55);
+  background: rgba(255, 253, 248, 0.32);
+  border-color: rgba(255, 253, 248, 0.7);
 }
 
-.showcase-nav.prev { left: 26px; }
-.showcase-nav.next { right: 26px; }
+.showcase-nav.prev { left: 24px; }
+.showcase-nav.next { right: 24px; }
 
 .showcase-count {
   position: absolute;
-  right: 30px;
-  bottom: 22px;
+  right: 28px;
+  bottom: 24px;
   z-index: 2;
   margin: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(18, 16, 13, 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   font-size: 12px;
   letter-spacing: 0.16em;
   font-variant-numeric: tabular-nums;
-  color: rgba(255, 253, 248, 0.9);
+  color: rgba(255, 253, 248, 0.94);
 }
 
-.showcase-count .slash { margin: 0 6px; opacity: 0.55; }
+.showcase-count .slash { margin: 0 5px; opacity: 0.55; }
 
 /* ============ 记录区 ============ */
 .timeline { padding-top: 72px; }
@@ -572,9 +599,11 @@ main {
   .site-header { padding: 18px 24px; }
   .site-header.is-scrolled { padding: 12px 24px; }
   main { padding: 0 24px 80px; }
-  .showcase { height: clamp(380px, 74svh, 620px); }
-  .showcase-nav.prev { left: 16px; }
-  .showcase-nav.next { right: 16px; }
+  .showcase { margin-top: 28px; padding: 8px; border-radius: 22px; }
+  .showcase-stage { height: clamp(300px, 56svh, 520px); border-radius: 16px; }
+  .showcase-nav { opacity: 1; width: 38px; height: 38px; }
+  .showcase-nav.prev { left: 14px; }
+  .showcase-nav.next { right: 14px; }
   .grid { columns: 2; column-gap: 22px; }
   .card { margin-bottom: 22px; }
   .site-footer { padding: 30px 24px 40px; }
@@ -587,11 +616,12 @@ main {
   .site-nav { gap: 18px; font-size: 13px; }
   .brand-text { display: none; }
   main { padding: 0 20px 64px; }
-  .showcase { height: clamp(320px, 66svh, 520px); }
-  .showcase-nav { width: 40px; height: 40px; font-size: 19px; }
+  .showcase { margin-top: 20px; padding: 6px; border-radius: 18px; }
+  .showcase-stage { height: clamp(260px, 48svh, 420px); border-radius: 14px; }
+  .showcase-nav { width: 34px; height: 34px; font-size: 18px; }
   .showcase-nav.prev { left: 10px; }
   .showcase-nav.next { right: 10px; }
-  .showcase-count { right: 16px; bottom: 16px; }
+  .showcase-count { right: 14px; bottom: 14px; font-size: 11px; }
   .timeline { padding-top: 48px; }
   .grid { columns: 1; }
   .section-head { align-items: flex-start; }

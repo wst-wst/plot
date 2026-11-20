@@ -60,17 +60,35 @@
     if (e.key === 'ArrowRight') show(current + 1);
   });
 
-  let startX = null;
-  stage.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-  }, { passive: true });
+  let dragStartX = null;
+  let wheelLock = 0;
+  const SWIPE_THRESHOLD = 42;
 
-  stage.addEventListener('touchend', e => {
-    if (startX === null) return;
-    const dx = e.changedTouches[0].clientX - startX;
-    startX = null;
-    if (Math.abs(dx) > 45) show(current + (dx < 0 ? 1 : -1));
+  stage.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    dragStartX = e.clientX;
+    stage.setPointerCapture?.(e.pointerId);
   });
+
+  stage.addEventListener('pointerup', e => {
+    if (dragStartX === null) return;
+    const dx = e.clientX - dragStartX;
+    dragStartX = null;
+    if (Math.abs(dx) >= SWIPE_THRESHOLD) show(current + (dx < 0 ? 1 : -1));
+  });
+
+  stage.addEventListener('pointercancel', () => {
+    dragStartX = null;
+  });
+
+  // 触控板 / 鼠标横向滑动
+  stage.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 12) return;
+    const now = Date.now();
+    if (now < wheelLock) return;
+    wheelLock = now + 400;
+    show(current + (e.deltaX > 0 ? 1 : -1));
+  }, { passive: true });
 
   if (slides.length < 2) {
     prevBtn.hidden = true;

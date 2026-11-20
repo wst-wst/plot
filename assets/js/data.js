@@ -4,26 +4,26 @@
 const PLOG_POSTS = [
   {
     "id": "hangzhou-biaoyi",
-    "title": "杭州标毅线拿下！",
+    "title": "杭州标毅线",
     "date": "2026-10-31",
     "location": "浙江 · 杭州",
     "city": "杭州",
     "tags": [
       "徒步"
     ],
-    "excerpt": "",
+    "excerpt": "艰苦拿下！",
     "body": [
       "第一次标毅线徒步，艰苦拿下！"
     ],
     "photos": [
       {
         "src": "content/posts/hangzhou-biaoyi/01.jpg",
-        "alt": "杭州标毅线拿下！，远眺风景",
+        "alt": "杭州标毅线，远眺风景",
         "caption": "远眺风景"
       },
       {
         "src": "content/posts/hangzhou-biaoyi/02.jpg",
-        "alt": "杭州标毅线拿下！，标毅线轨迹",
+        "alt": "杭州标毅线，标毅线轨迹",
         "caption": "标毅线轨迹"
       }
     ]

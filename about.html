@@ -27,52 +27,16 @@
       <div class="about-portrait">
         <img src="assets/img/about.jpg" alt="wst 拿着胶片相机的肖像">
       </div>
-      <div>
+      <div id="aboutHeroContent">
         <p class="eyebrow">About</p>
-        <h1>照片是我的<br>另一种笔记</h1>
-        <p class="lede">我是 wst，白天写代码，晚上整理照片。这个网站用来存放那些不适合发在朋友圈、又舍不得删掉的时刻。</p>
       </div>
     </section>
 
-    <section class="about-section">
-      <h2>关于我<span>Me</span></h2>
-      <div class="about-content">
-        <p>习惯用走路的方式认识一座城市：不带目的地，走到累了就找地方坐下，点一杯最便宜的咖啡，看街上的人来人往。</p>
-        <p>拍照很多年了，一直没什么风格。慢慢发现，自己反复拍的其实是同一类东西——下午四点的光、刚出锅的食物、雨停之后的倒影，还有别人没注意到的角落。</p>
-      </div>
-    </section>
+    <div id="aboutSections"></div>
 
-    <section class="about-section">
-      <h2>这个网站<span>The site</span></h2>
-      <div class="about-content">
-        <p>整站是手写的 HTML、CSS 和 JavaScript，没有框架、没有构建步骤，推到 GitHub 上就能直接访问。加载快，也不容易坏。</p>
-        <p>目前页面里的照片是 AI 生成的示意图，之后会逐步替换成自己拍的。记录内容都放在 <code>assets/js/data.js</code> 这一个文件里，加一篇新记录只要往数组里加一段。</p>
-      </div>
-    </section>
-
-    <section class="about-section">
-      <h2>常拍的<span>Topics</span></h2>
-      <div class="about-content">
-        <div class="topic-list">
-          <span class="topic">城市的边角</span>
-          <span class="topic">午后的光</span>
-          <span class="topic">街边食物</span>
-          <span class="topic">旅行的路</span>
-          <span class="topic">雨天</span>
-          <span class="topic">深夜</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-section">
-      <h2>找到我<span>Contact</span></h2>
-      <div class="about-content">
-        <div class="link-row">
-          <a class="link-btn" href="https://github.com/wst-wst" target="_blank" rel="noopener">GitHub ↗</a>
-          <a class="link-btn" href="index.html">看看最近的记录 →</a>
-        </div>
-      </div>
-    </section>
+    <noscript>
+      <p class="empty">关于页内容需要 JavaScript 才能加载，请开启后刷新。</p>
+    </noscript>
   </main>
 
   <footer class="site-footer">
@@ -80,6 +44,7 @@
     <p class="footer-note">Hosted on GitHub Pages · Made with plain HTML</p>
   </footer>
 
+  <script src="assets/js/about.js"></script>
   <script>
     (function () {
       var header = document.querySelector('.site-header');

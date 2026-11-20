@@ -2,7 +2,7 @@
   'use strict';
 
   const posts = [...PLOG_POSTS].sort((a, b) => (a.date < b.date ? 1 : -1));
-  const grid = document.getElementById('grid');
+  const timeline = document.getElementById('timeline');
   const filtersEl = document.getElementById('filters');
   const emptyEl = document.getElementById('empty');
   const lightbox = document.getElementById('lightbox');
@@ -78,56 +78,91 @@
       }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 })
     : null;
 
+  function createCard(post, delayIndex, visibleIndex) {
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.style.setProperty('--ratio', post.ratio);
+    card.style.transitionDelay = `${Math.min(delayIndex, 5) * 60}ms`;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'card-btn';
+    btn.setAttribute('aria-label', `打开记录：${post.title}`);
+
+    const figure = document.createElement('figure');
+    figure.className = 'card-figure';
+    const img = document.createElement('img');
+    img.src = post.photos[0].src;
+    img.alt = post.photos[0].alt;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    figure.appendChild(img);
+
+    const arrow = document.createElement('span');
+    arrow.className = 'card-arrow';
+    arrow.textContent = '↗';
+    arrow.setAttribute('aria-hidden', 'true');
+    figure.appendChild(arrow);
+
+    const body = document.createElement('div');
+    body.className = 'card-body';
+    body.innerHTML = `
+      <p class="card-meta"><time datetime="${post.date}">${formatDate(post.date)}</time><span class="sep">·</span><span>${post.city}</span></p>
+      <h3 class="card-title">${post.title}</h3>
+      <p class="card-excerpt">${post.excerpt}</p>
+    `;
+
+    btn.appendChild(figure);
+    btn.appendChild(body);
+    btn.addEventListener('click', () => openLightbox(visibleIndex));
+    card.appendChild(btn);
+
+    if (revealObserver) revealObserver.observe(card);
+    else card.classList.add('is-in');
+
+    return card;
+  }
+
   function renderGrid() {
     state.visible = state.tag === '全部'
       ? posts
       : posts.filter(p => p.tags.includes(state.tag));
 
-    grid.innerHTML = '';
+    timeline.innerHTML = '';
     emptyEl.hidden = state.visible.length > 0;
 
-    state.visible.forEach((post, i) => {
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.style.setProperty('--ratio', post.ratio);
-      card.style.transitionDelay = `${Math.min(i, 5) * 60}ms`;
+    const years = [];
+    state.visible.forEach(post => {
+      const year = post.date.slice(0, 4);
+      if (!years.includes(year)) years.push(year);
+    });
 
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'card-btn';
-      btn.setAttribute('aria-label', `打开记录：${post.title}`);
+    years.forEach(year => {
+      const group = state.visible.filter(p => p.date.startsWith(year));
+      const photoCount = group.reduce((sum, p) => sum + p.photos.length, 0);
 
-      const figure = document.createElement('figure');
-      figure.className = 'card-figure';
-      const img = document.createElement('img');
-      img.src = post.photos[0].src;
-      img.alt = post.photos[0].alt;
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      figure.appendChild(img);
+      const block = document.createElement('section');
+      block.className = 'year-block';
 
-      const arrow = document.createElement('span');
-      arrow.className = 'card-arrow';
-      arrow.textContent = '↗';
-      arrow.setAttribute('aria-hidden', 'true');
-      figure.appendChild(arrow);
+      const head = document.createElement('div');
+      head.className = 'year-head';
+      const num = document.createElement('h3');
+      num.className = 'year-num';
+      num.textContent = year;
+      const meta = document.createElement('span');
+      meta.className = 'year-meta';
+      meta.textContent = `${group.length} 篇 · ${photoCount} 张`;
+      head.append(num, meta);
 
-      const body = document.createElement('div');
-      body.className = 'card-body';
-      body.innerHTML = `
-        <p class="card-meta"><time datetime="${post.date}">${formatDate(post.date)}</time><span class="sep">·</span><span>${post.city}</span></p>
-        <h3 class="card-title">${post.title}</h3>
-        <p class="card-excerpt">${post.excerpt}</p>
-      `;
+      const grid = document.createElement('div');
+      grid.className = 'grid';
 
-      btn.appendChild(figure);
-      btn.appendChild(body);
-      btn.addEventListener('click', () => openLightbox(i));
-      card.appendChild(btn);
-      grid.appendChild(card);
+      group.forEach((post, i) => {
+        grid.appendChild(createCard(post, i, state.visible.indexOf(post)));
+      });
 
-      if (revealObserver) revealObserver.observe(card);
-      else card.classList.add('is-in');
+      block.append(head, grid);
+      timeline.appendChild(block);
     });
   }
 

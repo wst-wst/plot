@@ -39,44 +39,19 @@ python3 -m http.server 8000
 
 换成自己的照片时，把图片放进新建的 `assets/img/` 目录，`src` 写成相对路径即可，例如 `assets/img/2026-12-01-01.jpg`。
 
-## 修改关于页
-
-关于页正文在 `content/about.md`，改完保存即可，页面会自动渲染成现有版式。支持的写法：
-
-```md
-# 大标题<br>需要换行时用 br
-
-首段文字会显示成大号导语。
-
-## 小标题 | English Subtitle
-
-普通段落。支持 **加粗**、*斜体*、`行内代码` 和 [链接](https://example.com)。
-
-- 普通列表会渲染成标签胶囊
-- 再写一条
-
-## 联系 | Contact
-
-- [GitHub ↗](https://github.com/wst-wst)
-- [看看最近的记录 →](index.html)
-```
-
-列表里的每一项都是链接时，会自动渲染成一排按钮；否则渲染成标签。人像图片仍在 `about.html` 中固定。
+首页会按 `date` 的年份自动分组，无需手动维护年份标题。
 
 ## 目录结构
 
 ```
 .
-├── index.html            # 首页：首屏 + 记录图流
-├── about.html            # 关于页（正文由 Markdown 渲染）
-├── content/
-│   └── about.md          # 关于页正文
+├── index.html            # 首页：首屏 + 按年份分组的记录图流
 ├── assets/
 │   ├── css/style.css     # 全部样式
+│   ├── img/              # 图片
 │   └── js/
 │       ├── data.js       # 记录数据（新增内容只改这里）
-│       ├── app.js        # 筛选、详情浮层、滚动动效
-│       └── about.js      # 把 about.md 渲染成页面
+│       └── app.js        # 年份分组、筛选、详情浮层、滚动动效
 ├── .nojekyll             # 跳过 Jekyll 处理
 └── README.md
 ```

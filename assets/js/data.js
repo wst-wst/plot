@@ -18,6 +18,11 @@ const PLOG_POSTS = [
     "photos": [
       {
         "src": "content/posts/hangzhou-biaoyi/01.jpg",
+        "alt": "杭州标毅线拿下！，远眺风景",
+        "caption": "远眺风景"
+      },
+      {
+        "src": "content/posts/hangzhou-biaoyi/02.jpg",
         "alt": "杭州标毅线拿下！，标毅线轨迹",
         "caption": "标毅线轨迹"
       }

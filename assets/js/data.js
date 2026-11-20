@@ -132,7 +132,8 @@ const PLOG_POSTS = [
     "location": "澳门",
     "city": "澳门",
     "tags": [
-      "夏日，旅行"
+      "夏日",
+      "旅行"
     ],
     "excerpt": "炎热的七月底",
     "body": [

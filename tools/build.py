@@ -186,7 +186,47 @@ def push():
     print('已推送到 GitHub，约 1 分钟后线上生效')
 
 
+def new_post(slug):
+    """新建一篇记录的文件夹与 index.md 模板。"""
+    slug = re.sub(r'[^\w\u4e00-\u9fff-]+', '-', slug.strip()).strip('-')
+    if not slug:
+        die('用法：python3 tools/build.py --new <文件夹名>')
+
+    folder = POSTS_DIR / slug
+    if folder.exists():
+        die(f'content/posts/{slug} 已存在')
+
+    folder.mkdir(parents=True)
+    today = datetime.now().strftime('%Y-%m-%d')
+    (folder / 'index.md').write_text(f'''---
+title: 
+date: {today}
+location: 
+city: 
+tags: []
+excerpt: 
+captions:
+alts:
+---
+
+
+''', encoding='utf-8')
+
+    print(f'已创建 content/posts/{slug}/index.md')
+    print('接下来：')
+    print('  1. 填写 index.md 的 title / location / tags / 正文')
+    print('  2. 把照片放进同一个文件夹（HEIC 会自动转 JPG）')
+    print('  3. python3 tools/build.py --push')
+
+
 if __name__ == '__main__':
+    if '--new' in sys.argv:
+        index = sys.argv.index('--new')
+        if index + 1 >= len(sys.argv):
+            die('用法：python3 tools/build.py --new <文件夹名>')
+        new_post(sys.argv[index + 1])
+        sys.exit(0)
+
     build()
     if '--push' in sys.argv:
         push()

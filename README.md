@@ -58,6 +58,14 @@ python3 tools/build.py --push   # 生成并自动提交、推送到 GitHub
 
 推上去约 1 分钟后线上生效。
 
+**新建**一篇的文件夹和模板：
+
+```bash
+python3 tools/build.py --new shirahama-sea
+```
+
+会生成 `content/posts/shirahama-sea/index.md`（日期已填今天），填好内容、放进照片后运行 `build.py --push`。
+
 **删除**一篇：删掉整个文件夹，重新运行 `build.py --push`。
 **修改**：直接改 `index.md` 或替换文件夹里的图片，再运行一次。
 

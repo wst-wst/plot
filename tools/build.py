@@ -124,7 +124,7 @@ def load_post(folder):
     photos = []
     for i, img in enumerate(images):
         caption = captions[i] if i < len(captions) else ''
-        alt = alts[i] if i < len(alts) else (f'{title}，{caption}' if caption else title)
+        alt = alts[i] if i < len(alts) and alts[i] else (f'{title}，{caption}' if caption else title)
         photos.append({
             'src': img.relative_to(ROOT).as_posix(),
             'alt': alt,

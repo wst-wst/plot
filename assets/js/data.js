@@ -3,34 +3,6 @@
 
 const PLOG_POSTS = [
   {
-    "id": "harbin-first-snow",
-    "title": "哈尔滨的第一场雪",
-    "date": "2026-11-14",
-    "location": "哈尔滨 · 中央大街",
-    "city": "哈尔滨",
-    "tags": [
-      "旅行",
-      "冬日"
-    ],
-    "excerpt": "雪落下来的时候，整条街忽然安静了。",
-    "body": [
-      "中央大街的石头路面被雪填平了棱角，走起来有点滑。卖烤红薯的推车冒白气，玻璃上结了一层雾。",
-      "我在一家旧书店门口站了很久。老板把收音机音量调小，问我是不是第一次来。我说是。他说，那你运气不错，今年的第一场。"
-    ],
-    "photos": [
-      {
-        "src": "content/posts/harbin-first-snow/01.jpg",
-        "alt": "哈尔滨中央大街的第一场雪，暖色店铺灯光映在雪地上",
-        "caption": "17:42，街灯刚亮起来"
-      },
-      {
-        "src": "content/posts/harbin-first-snow/02.jpg",
-        "alt": "雪天街边的烤红薯推车冒着热气",
-        "caption": "手里那块红薯，是那天最暖的东西"
-      }
-    ]
-  },
-  {
     "id": "october-windowsill",
     "title": "十月的窗台",
     "date": "2026-10-28",
@@ -50,6 +22,29 @@ const PLOG_POSTS = [
         "src": "content/posts/october-windowsill/01.jpg",
         "alt": "十月下午的阳光照在书架和窗台的茶杯上",
         "caption": "16:07，一年里最舒服的角度"
+      }
+    ]
+  },
+  {
+    "id": "shirahama-sea",
+    "title": "前往白滨",
+    "date": "2026-10-07",
+    "location": "和歌山 · 白滨",
+    "city": "SHIRAHAMA",
+    "tags": [
+      "大阪",
+      "和歌山",
+      "熊野古道"
+    ],
+    "excerpt": "坐「黑潮号」JR从新宫前往白滨",
+    "body": [
+      "达成「熊野古道中边路全踏破」成就后，从新宫市（Shingu）出发，坐「黑潮号」JR前往白滨市（Shirahama）。"
+    ],
+    "photos": [
+      {
+        "src": "content/posts/shirahama-sea/01.jpg",
+        "alt": "前往白滨，美丽的大海",
+        "caption": "美丽的大海"
       }
     ]
   },

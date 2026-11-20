@@ -68,7 +68,6 @@
   function createCard(post, delayIndex, visibleIndex) {
     const card = document.createElement('article');
     card.className = 'card';
-    card.style.setProperty('--ratio', post.ratio);
     card.style.transitionDelay = `${Math.min(delayIndex, 5) * 60}ms`;
 
     const btn = document.createElement('button');

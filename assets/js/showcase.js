@@ -40,6 +40,18 @@
 
   totalEl.textContent = pad(slides.length);
 
+  const dotsWrap = document.getElementById('scDots');
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `第 ${i + 1} 张`);
+    dot.className = i === 0 ? 'is-active' : '';
+    dot.addEventListener('click', () => show(i));
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+
   let current = 0;
   function show(next) {
     if (slides.length < 2) return;
@@ -47,6 +59,8 @@
     if (target === current) return;
     slides[current].classList.remove('is-active');
     slides[target].classList.add('is-active');
+    dots[current].classList.remove('is-active');
+    dots[target].classList.add('is-active');
     current = target;
     indexEl.textContent = pad(current + 1);
   }

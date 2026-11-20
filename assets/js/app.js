@@ -19,23 +19,10 @@
     lastFocus: null
   };
 
-  const pad = n => String(n).padStart(2, '0');
   const formatDate = iso => {
     const [y, m, d] = iso.split('-');
     return `${y}.${m}.${d}`;
   };
-  const shortDate = iso => {
-    const [, m, d] = iso.split('-');
-    return `${m}.${d}`;
-  };
-
-  /* ---------- 统计数字 ---------- */
-  const statPosts = document.getElementById('statPosts');
-  const statCities = document.getElementById('statCities');
-  const statPhotos = document.getElementById('statPhotos');
-  if (statPosts) statPosts.textContent = posts.length;
-  if (statCities) statCities.textContent = new Set(posts.map(p => p.city)).size;
-  if (statPhotos) statPhotos.textContent = posts.reduce((sum, p) => sum + p.photos.length, 0);
 
   /* ---------- 标签筛选 ---------- */
   function renderFilters() {

@@ -25,21 +25,11 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">Photo log · est. 2026</p>
-        <h1>把普通的日子<br>慢慢拍下来</h1>
-        <p class="lede">这里没有宏大的叙事，只有走过的街、吃过的饭，和某一刻恰好落在墙上的光。偶尔写字，大多数时候只是按下快门。</p>
-        <dl class="stats">
-          <div><dt>篇记录</dt><dd id="statPosts">—</dd></div>
-          <div><dt>座城市</dt><dd id="statCities">—</dd></div>
-          <div><dt>张照片</dt><dd id="statPhotos">—</dd></div>
-        </dl>
-      </div>
-      <figure class="hero-figure">
-        <img src="assets/img/hero.jpg" alt="傍晚的海边小城街道，暖黄的窗光落在石板路上" loading="eager">
-        <figcaption>2026 · 青岛，八大关</figcaption>
-      </figure>
+    <section class="showcase" id="showcase" aria-roledescription="carousel" aria-label="随机照片">
+      <div class="showcase-stage" id="showcaseStage"></div>
+      <button type="button" class="showcase-nav prev" id="scPrev" aria-label="上一张">‹</button>
+      <button type="button" class="showcase-nav next" id="scNext" aria-label="下一张">›</button>
+      <p class="showcase-count"><span id="scIndex">01</span><span class="slash">/</span><span id="scTotal">05</span></p>
     </section>
 
     <section class="timeline" id="plog" aria-labelledby="latestTitle">
@@ -74,6 +64,7 @@
   </div>
 
   <script src="assets/js/data.js"></script>
+  <script src="assets/js/showcase.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>

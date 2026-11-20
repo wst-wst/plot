@@ -2,7 +2,7 @@
 
 生活影像记录站：照片为主，配短文、日期与标签。纯静态 HTML / CSS / JavaScript，零依赖、零构建，直接托管在 GitHub Pages。
 
-线上地址：https://wst-wst.github.io/plog
+线上地址：https://wst-wst.github.io/plot
 
 ## 本地预览
 

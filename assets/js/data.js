@@ -196,7 +196,9 @@ const PLOG_POSTS = [
       "大海"
     ],
     "excerpt": "Olle 100km达成！",
-    "body": [],
+    "body": [
+      "6月18日，1号线、1-1号线（牛岛骑行）6月19日，8号线6月20日，7号线、7-1号线6月21日，10号线6月22日，6号线"
+    ],
     "photos": [
       {
         "src": "assets/img/watermark/jeju-olle/01.JPG",
@@ -217,6 +219,16 @@ const PLOG_POSTS = [
         "src": "assets/img/watermark/jeju-olle/04.JPG",
         "alt": "济州岛偶来小路徒步，1-1号线印章",
         "caption": "1-1号线印章"
+      },
+      {
+        "src": "assets/img/watermark/jeju-olle/8-1.JPG",
+        "alt": "济州岛偶来小路徒步，8号线海边钓鱼的人",
+        "caption": "8号线海边钓鱼的人"
+      },
+      {
+        "src": "assets/img/watermark/jeju-olle/8-2.JPG",
+        "alt": "济州岛偶来小路徒步，柱状节理带",
+        "caption": "柱状节理带"
       }
     ]
   },

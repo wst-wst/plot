@@ -69,6 +69,21 @@ python3 tools/build.py --new shirahama-sea
 **删除**一篇：删掉整个文件夹，重新运行 `build.py --push`。
 **修改**：直接改 `index.md` 或替换文件夹里的图片，再运行一次。
 
+## 照片水印与版权
+
+每次运行 `build.py` 时，会把 `content/posts/` 里的照片重新生成一份带水印的展示图，输出到 `assets/img/watermark/<slug>/`，网页只引用水印图，原图不会被改动：
+
+- 水印内容：斜向交叉线平铺整张画面，交叉处是倾斜的 `wst` 字样
+- 图片 EXIF 里同时写入 `Artist: wst` 和 `Copyright`
+- 详情浮层底部显示一行版权说明
+- 水印图按源文件的修改时间缓存，改了水印样式想重新生成时，删掉 `assets/img/watermark/` 再运行即可
+
+依赖 Pillow：
+
+```bash
+python3 -m pip install --user Pillow
+```
+
 ## 首屏随机照片
 
 进入首页时，会从所有照片里随机抽 5 张，放在首屏的大屏轮播里（16:9，移动端 4:3）。两侧箭头、底部圆点、键盘 ← →、鼠标拖动、触控板横向滑动、手机左右滑动都能切换，顺序每次刷新都不同。
@@ -84,6 +99,7 @@ python3 tools/build.py --new shirahama-sea
 ├── tools/build.py        # 扫描 content/posts 生成 data.js
 ├── assets/
 │   ├── css/style.css     # 全部样式
+│   ├── img/watermark/    # 自动生成的水印图
 │   └── js/
 │       ├── data.js       # 自动生成，不要手改
 │       ├── showcase.js   # 首屏随机 5 张照片与左右切换

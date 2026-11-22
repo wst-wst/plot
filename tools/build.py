@@ -16,11 +16,24 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+try:
+    from PIL import Image, ImageDraw, ImageFont, ImageOps
+except ImportError:
+    Image = None
+
 ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = ROOT / 'content' / 'posts'
 OUT_FILE = ROOT / 'assets' / 'js' / 'data.js'
+WATERMARK_DIR = ROOT / 'assets' / 'img' / 'watermark'
 IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.webp'}
 RAW_EXTS = {'.heic', '.heif'}
+WATERMARK_TEXT = 'wst'
+FONT_PATHS = (
+    '/System/Library/Fonts/Supplemental/Arial Bold.ttf',
+    '/System/Library/Fonts/Supplemental/Arial.ttf',
+    '/Library/Fonts/Arial Bold.ttf',
+    '/Library/Fonts/Arial.ttf',
+)
 
 
 def die(msg):
@@ -94,6 +107,77 @@ def convert_heic(folder):
         print(f'  已转换 {raw.name} → {out.name}')
 
 
+def load_font(size):
+    for path in FONT_PATHS:
+        if Path(path).exists():
+            try:
+                return ImageFont.truetype(path, size)
+            except OSError:
+                continue
+    try:
+        return ImageFont.load_default(size)
+    except TypeError:
+        return ImageFont.load_default()
+
+
+def watermark_tile(size):
+    """一个平铺单元：对角交叉线 + 倾斜的 wst，重复拼接后铺满整张照片。"""
+    tile = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(tile)
+    line_width = max(1, size // 70)
+    for offset, color in ((2, (0, 0, 0, 26)), (0, (255, 255, 255, 46))):
+        draw.line([(offset, offset), (size + offset, size + offset)], fill=color, width=line_width)
+        draw.line([(size + offset, offset), (offset, size + offset)], fill=color, width=line_width)
+
+    font = load_font(max(10, size // 7))
+    box = draw.textbbox((0, 0), WATERMARK_TEXT, font=font)
+    text_w, text_h = box[2] - box[0], box[3] - box[1]
+    pad = 6
+    stamp = Image.new('RGBA', (text_w + pad * 2, text_h + pad * 2), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(stamp)
+    sd.text((pad - box[0] + 2, pad - box[1] + 2), WATERMARK_TEXT, font=font, fill=(0, 0, 0, 90))
+    sd.text((pad - box[0], pad - box[1]), WATERMARK_TEXT, font=font, fill=(255, 255, 255, 115))
+    stamp = stamp.rotate(45, expand=True, resample=Image.BICUBIC)
+    tile.alpha_composite(stamp, ((size - stamp.width) // 2, (size - stamp.height) // 2))
+    return tile
+
+
+def watermark_photo(src, dst):
+    """生成带 wst 水印的展示图并写入版权信息，原图保持不动。"""
+    if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime:
+        return
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    with Image.open(src) as opened:
+        exif = opened.getexif()
+        img = ImageOps.exif_transpose(opened)
+        if img.mode in ('RGBA', 'LA', 'P'):
+            img = img.convert('RGBA')
+            flat = Image.new('RGB', img.size, (255, 255, 255))
+            flat.paste(img, mask=img.getchannel('A'))
+            img = flat
+        else:
+            img = img.convert('RGB')
+
+    tile_size = max(120, min(img.size) // 6)
+    tile = watermark_tile(tile_size)
+    overlay = Image.new('RGBA', img.size, (0, 0, 0, 0))
+    for y in range(0, img.height, tile_size):
+        for x in range(0, img.width, tile_size):
+            overlay.paste(tile, (x, y), tile)
+    img = Image.alpha_composite(img.convert('RGBA'), overlay).convert('RGB')
+
+    exif[0x013B] = 'wst'                # Artist
+    exif[0x8298] = 'Copyright (c) wst - All rights reserved'    # Copyright
+    suffix = dst.suffix.lower()
+    if suffix == '.webp':
+        img.save(dst, 'WEBP', quality=88, method=4)
+    elif suffix == '.png':
+        img.save(dst, 'PNG', optimize=True)
+    else:
+        img.save(dst, 'JPEG', quality=88, optimize=True, progressive=True, exif=exif.tobytes())
+    print(f'  已加水印 {dst.relative_to(ROOT)}')
+
+
 def load_post(folder):
     md_file = folder / 'index.md'
     if not md_file.exists():
@@ -123,10 +207,12 @@ def load_post(folder):
     alts = meta.get('alts') or []
     photos = []
     for i, img in enumerate(images):
+        dst = WATERMARK_DIR / folder.name / img.name
+        watermark_photo(img, dst)
         caption = captions[i] if i < len(captions) else ''
         alt = alts[i] if i < len(alts) and alts[i] else (f'{title}，{caption}' if caption else title)
         photos.append({
-            'src': img.relative_to(ROOT).as_posix(),
+            'src': dst.relative_to(ROOT).as_posix(),
             'alt': alt,
             'caption': caption,
         })
@@ -146,6 +232,8 @@ def load_post(folder):
 
 
 def build():
+    if Image is None:
+        die('缺少 Pillow，无法给照片加水印：先运行 python3 -m pip install --user Pillow')
     if not POSTS_DIR.exists():
         die('找不到 content/posts 目录')
 

@@ -17,12 +17,12 @@ const PLOG_POSTS = [
     ],
     "photos": [
       {
-        "src": "content/posts/hangzhou-biaoyi/01.jpg",
+        "src": "assets/img/watermark/hangzhou-biaoyi/01.jpg",
         "alt": "杭州标毅线，远眺风景",
         "caption": "远眺风景"
       },
       {
-        "src": "content/posts/hangzhou-biaoyi/02.jpg",
+        "src": "assets/img/watermark/hangzhou-biaoyi/02.jpg",
         "alt": "杭州标毅线，标毅线轨迹",
         "caption": "标毅线轨迹"
       }
@@ -33,7 +33,7 @@ const PLOG_POSTS = [
     "title": "前往白滨",
     "date": "2026-10-07",
     "location": "和歌山 · 白滨",
-    "city": "SHIRAHAMA",
+    "city": "大阪 · 白滨",
     "tags": [
       "大阪",
       "和歌山",
@@ -45,7 +45,7 @@ const PLOG_POSTS = [
     ],
     "photos": [
       {
-        "src": "content/posts/shirahama-sea/01.jpg",
+        "src": "assets/img/watermark/shirahama-sea/01.jpg",
         "alt": "前往白滨，美丽的大海",
         "caption": "美丽的大海"
       }
@@ -56,7 +56,7 @@ const PLOG_POSTS = [
     "title": "熊野古道中边路徒步",
     "date": "2026-10-01",
     "location": "和歌山 · 纪伊田边",
-    "city": "",
+    "city": "日本 · 大阪",
     "tags": [
       "大阪",
       "和歌山",
@@ -73,12 +73,12 @@ const PLOG_POSTS = [
     ],
     "photos": [
       {
-        "src": "content/posts/kumano-kodo-nakahechi/01.JPG",
+        "src": "assets/img/watermark/kumano-kodo-nakahechi/01.JPG",
         "alt": "熊野古道中边路徒步，中边路起点「滝尻王子」",
         "caption": "中边路起点「滝尻王子」"
       },
       {
-        "src": "content/posts/kumano-kodo-nakahechi/02.JPG",
+        "src": "assets/img/watermark/kumano-kodo-nakahechi/02.JPG",
         "alt": "熊野古道中边路徒步，「潮见峠越」休息所",
         "caption": "「潮见峠越」休息所"
       }
@@ -100,12 +100,12 @@ const PLOG_POSTS = [
     ],
     "photos": [
       {
-        "src": "content/posts/macao/01.JPG",
+        "src": "assets/img/watermark/macao/01.JPG",
         "alt": "澳门的那个夏天，旺记咖啡",
         "caption": "旺记咖啡"
       },
       {
-        "src": "content/posts/macao/02.JPG",
+        "src": "assets/img/watermark/macao/02.JPG",
         "alt": "澳门的那个夏天，澳门疯堂斜巷",
         "caption": "澳门疯堂斜巷"
       }
@@ -124,12 +124,12 @@ const PLOG_POSTS = [
     "body": [],
     "photos": [
       {
-        "src": "content/posts/kunming/01.jpg",
+        "src": "assets/img/watermark/kunming/01.jpg",
         "alt": "昆明，独脚海鸥",
         "caption": "独脚海鸥"
       },
       {
-        "src": "content/posts/kunming/02.JPG",
+        "src": "assets/img/watermark/kunming/02.JPG",
         "alt": "昆明，展翅",
         "caption": "展翅"
       }

@@ -226,6 +226,11 @@
       lbMedia.appendChild(fig);
     });
 
+    const credit = document.createElement('p');
+    credit.className = 'lb-credit';
+    credit.textContent = '图片版权归 wst 所有 · 未经许可请勿转载';
+    lbMedia.appendChild(credit);
+
     lbMeta.textContent = `${formatDate(post.date)} · ${post.location}`;
     lbTitle.textContent = post.title;
     lbText.innerHTML = post.body.map(p => `<p>${p}</p>`).join('');

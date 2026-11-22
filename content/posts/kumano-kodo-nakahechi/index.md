@@ -2,7 +2,7 @@
 title: 熊野古道中边路徒步
 date: 2026-10-01
 location: 和歌山 · 纪伊田边
-city: 
+city: 日本 · 大阪
 tags: [大阪, 和歌山, 熊野古道, 徒步, 旅行]
 excerpt: 热身第一天
 captions:

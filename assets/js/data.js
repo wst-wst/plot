@@ -72,18 +72,28 @@ const PLOG_POSTS = [
     "photos": [
       {
         "src": "assets/img/watermark/shirahama/01.jpg",
-        "alt": "白滨悠然假期，白良滨日落",
-        "caption": "白良滨日落"
+        "alt": "白滨悠然假期，円月岛日落",
+        "caption": "円月岛日落"
       },
       {
         "src": "assets/img/watermark/shirahama/02.jpg",
-        "alt": "白滨悠然假期，円月岛日落",
-        "caption": "円月岛日落"
+        "alt": "白滨悠然假期，白良滨日落",
+        "caption": "白良滨日落"
       },
       {
         "src": "assets/img/watermark/shirahama/03.jpg",
         "alt": "白滨悠然假期，千畳敷日落",
         "caption": "千畳敷日落"
+      },
+      {
+        "src": "assets/img/watermark/shirahama/04.jpg",
+        "alt": "白滨悠然假期，三段壁",
+        "caption": "三段壁"
+      },
+      {
+        "src": "assets/img/watermark/shirahama/05.jpg",
+        "alt": "白滨悠然假期，豆の汤的早餐",
+        "caption": "豆の汤的早餐"
       }
     ]
   },

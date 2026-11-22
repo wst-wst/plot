@@ -52,6 +52,42 @@ const PLOG_POSTS = [
     ]
   },
   {
+    "id": "shirahama",
+    "title": "白滨悠然假期",
+    "date": "2026-10-07",
+    "location": "大阪 · 白滨",
+    "city": "日本 · 大阪",
+    "tags": [
+      "大阪",
+      "和歌山",
+      "旅行"
+    ],
+    "excerpt": "咖啡、日落和大海",
+    "body": [
+      "完成「熊野古道中边路」徒步全踏破后，坐JR到白滨市住了三天。",
+      "早晨，随机打卡Cafe，吃Brunch。",
+      "然后坐巴士到三段壁、千畳敷看海，坐在海边看着碧蓝的海水、听着海浪拍打礁石。",
+      "傍晚，回到白良滨海滩，在海滩或者円月岛附近静候日落。"
+    ],
+    "photos": [
+      {
+        "src": "assets/img/watermark/shirahama/01.jpg",
+        "alt": "白滨悠然假期，白良滨日落",
+        "caption": "白良滨日落"
+      },
+      {
+        "src": "assets/img/watermark/shirahama/02.jpg",
+        "alt": "白滨悠然假期，円月岛日落",
+        "caption": "円月岛日落"
+      },
+      {
+        "src": "assets/img/watermark/shirahama/03.jpg",
+        "alt": "白滨悠然假期，千畳敷日落",
+        "caption": "千畳敷日落"
+      }
+    ]
+  },
+  {
     "id": "kumano-kodo-nakahechi",
     "title": "熊野古道中边路徒步",
     "date": "2026-10-01",

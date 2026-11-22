@@ -291,6 +291,22 @@
 
   /* ---------- 初始化 ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const statsEl = document.getElementById('siteStats');
+  let statTries = 0;
+  const statTimer = setInterval(() => {
+    const uvEl = document.getElementById('busuanzi_value_site_uv');
+    const pvEl = document.getElementById('busuanzi_value_site_pv');
+    const uv = uvEl ? uvEl.textContent.trim() : '';
+    const pv = pvEl ? pvEl.textContent.trim() : '';
+    if (uv !== '—' && uv && pv !== '—' && pv) {
+      statsEl.hidden = false;
+      clearInterval(statTimer);
+    } else if (++statTries > 40) {
+      clearInterval(statTimer);
+    }
+  }, 500);
+
   renderFilters();
   renderGrid();
 

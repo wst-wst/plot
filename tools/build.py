@@ -29,10 +29,9 @@ IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.webp'}
 RAW_EXTS = {'.heic', '.heif'}
 WATERMARK_TEXT = 'wst'
 FONT_PATHS = (
-    '/System/Library/Fonts/Supplemental/Arial Bold.ttf',
     '/System/Library/Fonts/Supplemental/Arial.ttf',
-    '/Library/Fonts/Arial Bold.ttf',
     '/Library/Fonts/Arial.ttf',
+    '/System/Library/Fonts/Helvetica.ttc',
 )
 
 
@@ -125,7 +124,7 @@ def watermark_tile(size):
     tile = Image.new('RGBA', (size, size), (0, 0, 0, 0))
     draw = ImageDraw.Draw(tile)
     line_width = max(1, size // 70)
-    for offset, color in ((2, (0, 0, 0, 26)), (0, (255, 255, 255, 46))):
+    for offset, color in ((2, (0, 0, 0, 16)), (0, (255, 255, 255, 28))):
         draw.line([(offset, offset), (size + offset, size + offset)], fill=color, width=line_width)
         draw.line([(size + offset, offset), (offset, size + offset)], fill=color, width=line_width)
 
@@ -135,8 +134,8 @@ def watermark_tile(size):
     pad = 6
     stamp = Image.new('RGBA', (text_w + pad * 2, text_h + pad * 2), (0, 0, 0, 0))
     sd = ImageDraw.Draw(stamp)
-    sd.text((pad - box[0] + 2, pad - box[1] + 2), WATERMARK_TEXT, font=font, fill=(0, 0, 0, 90))
-    sd.text((pad - box[0], pad - box[1]), WATERMARK_TEXT, font=font, fill=(255, 255, 255, 115))
+    sd.text((pad - box[0] + 2, pad - box[1] + 2), WATERMARK_TEXT, font=font, fill=(0, 0, 0, 55))
+    sd.text((pad - box[0], pad - box[1]), WATERMARK_TEXT, font=font, fill=(255, 255, 255, 75))
     stamp = stamp.rotate(45, expand=True, resample=Image.BICUBIC)
     tile.alpha_composite(stamp, ((size - stamp.width) // 2, (size - stamp.height) // 2))
     return tile

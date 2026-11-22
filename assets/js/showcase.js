@@ -20,10 +20,12 @@
     return list;
   };
 
-  const allPhotos = PLOG_POSTS.flatMap(post => post.photos);
+  const allPhotos = PLOG_POSTS.flatMap(post => post.photos.map(photo => ({ post, photo })));
   const picked = shuffle([...allPhotos]).slice(0, Math.min(5, allPhotos.length));
 
-  const slides = picked.map((photo, i) => {
+  const formatDate = iso => iso.split('-').join('.');
+
+  const slides = picked.map(({ post, photo }, i) => {
     const fig = document.createElement('figure');
     fig.className = 'showcase-slide' + (i === 0 ? ' is-active' : '');
 
@@ -33,6 +35,19 @@
     img.loading = i === 0 ? 'eager' : 'lazy';
     img.decoding = 'async';
     fig.appendChild(img);
+
+    const caption = document.createElement('figcaption');
+    caption.className = 'showcase-caption';
+    const date = document.createElement('time');
+    date.dateTime = post.date;
+    date.textContent = formatDate(post.date);
+    caption.appendChild(date);
+    if (post.city) {
+      const city = document.createElement('span');
+      city.textContent = post.city;
+      caption.appendChild(city);
+    }
+    fig.appendChild(caption);
 
     stage.appendChild(fig);
     return fig;

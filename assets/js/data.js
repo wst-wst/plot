@@ -233,6 +233,50 @@ const PLOG_POSTS = [
     ]
   },
   {
+    "id": "jiuzhaigou",
+    "title": "九寨沟",
+    "date": "2026-05-30",
+    "location": "四川省・阿坝藏族羌族自治州・九寨沟县",
+    "city": "四川省 · 阿坝藏族羌族自治州",
+    "tags": [
+      "旅行"
+    ],
+    "excerpt": "",
+    "body": [],
+    "photos": [
+      {
+        "src": "assets/img/watermark/jiuzhaigou/01-芦苇海.JPG",
+        "alt": "九寨沟，芦苇海",
+        "caption": "芦苇海"
+      },
+      {
+        "src": "assets/img/watermark/jiuzhaigou/02-长海.JPG",
+        "alt": "九寨沟，长海",
+        "caption": "长海"
+      },
+      {
+        "src": "assets/img/watermark/jiuzhaigou/03-老虎海.JPG",
+        "alt": "九寨沟，老虎海",
+        "caption": "老虎海"
+      },
+      {
+        "src": "assets/img/watermark/jiuzhaigou/04-箭竹海.JPG",
+        "alt": "九寨沟，箭竹海",
+        "caption": "箭竹海"
+      },
+      {
+        "src": "assets/img/watermark/jiuzhaigou/05-树正瀑布.JPG",
+        "alt": "九寨沟，树正瀑布",
+        "caption": "树正瀑布"
+      },
+      {
+        "src": "assets/img/watermark/jiuzhaigou/06-五花海.JPG",
+        "alt": "九寨沟，五花海",
+        "caption": "五花海"
+      }
+    ]
+  },
+  {
     "id": "macao",
     "title": "澳门的那个夏天",
     "date": "2025-07-25",

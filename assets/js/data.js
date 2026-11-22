@@ -197,7 +197,11 @@ const PLOG_POSTS = [
     ],
     "excerpt": "Olle 100km达成！",
     "body": [
-      "6月18日，1号线、1-1号线（牛岛骑行）6月19日，8号线6月20日，7号线、7-1号线6月21日，10号线6月22日，6号线"
+      "6月18日，1号线、1-1号线（牛岛骑行）",
+      "6月19日，8号线",
+      "6月20日，7号线、7-1号线",
+      "6月21日，10号线",
+      "6月22日，6号线"
     ],
     "photos": [
       {
@@ -233,7 +237,26 @@ const PLOG_POSTS = [
     ]
   },
   {
-    "id": "jiuzhaigou",
+    "id": "sichuan-huanglong",
+    "title": "黄龙",
+    "date": "2026-05-31",
+    "location": "四川省・阿坝藏族羌族自治州・松潘县",
+    "city": "四川省・阿坝藏族羌族自治州",
+    "tags": [
+      "旅行"
+    ],
+    "excerpt": "",
+    "body": [],
+    "photos": [
+      {
+        "src": "assets/img/watermark/sichuan-huanglong/01.JPG",
+        "alt": "黄龙，美丽五彩池",
+        "caption": "美丽五彩池"
+      }
+    ]
+  },
+  {
+    "id": "sichuan-jiuzhaigou",
     "title": "九寨沟",
     "date": "2026-05-30",
     "location": "四川省・阿坝藏族羌族自治州・九寨沟县",
@@ -245,32 +268,32 @@ const PLOG_POSTS = [
     "body": [],
     "photos": [
       {
-        "src": "assets/img/watermark/jiuzhaigou/01-芦苇海.JPG",
+        "src": "assets/img/watermark/sichuan-jiuzhaigou/01-芦苇海.JPG",
         "alt": "九寨沟，芦苇海",
         "caption": "芦苇海"
       },
       {
-        "src": "assets/img/watermark/jiuzhaigou/02-长海.JPG",
+        "src": "assets/img/watermark/sichuan-jiuzhaigou/02-长海.JPG",
         "alt": "九寨沟，长海",
         "caption": "长海"
       },
       {
-        "src": "assets/img/watermark/jiuzhaigou/03-老虎海.JPG",
+        "src": "assets/img/watermark/sichuan-jiuzhaigou/03-老虎海.JPG",
         "alt": "九寨沟，老虎海",
         "caption": "老虎海"
       },
       {
-        "src": "assets/img/watermark/jiuzhaigou/04-箭竹海.JPG",
+        "src": "assets/img/watermark/sichuan-jiuzhaigou/04-箭竹海.JPG",
         "alt": "九寨沟，箭竹海",
         "caption": "箭竹海"
       },
       {
-        "src": "assets/img/watermark/jiuzhaigou/05-树正瀑布.JPG",
+        "src": "assets/img/watermark/sichuan-jiuzhaigou/05-树正瀑布.JPG",
         "alt": "九寨沟，树正瀑布",
         "caption": "树正瀑布"
       },
       {
-        "src": "assets/img/watermark/jiuzhaigou/06-五花海.JPG",
+        "src": "assets/img/watermark/sichuan-jiuzhaigou/06-五花海.JPG",
         "alt": "九寨沟，五花海",
         "caption": "五花海"
       }

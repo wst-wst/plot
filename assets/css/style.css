@@ -167,7 +167,7 @@ main {
 .showcase-caption {
   position: absolute;
   left: 26px;
-  top: 22px;
+  bottom: 20px;
   z-index: 3;
   display: flex;
   align-items: baseline;
@@ -780,7 +780,7 @@ main {
   .showcase-nav.prev { left: 10px; }
   .showcase-nav.next { right: 10px; }
   .showcase-dots { bottom: 14px; }
-  .showcase-caption { left: 16px; top: 14px; font-size: 11px; }
+  .showcase-caption { left: 16px; bottom: 32px; font-size: 11px; }
   .showcase-count { right: 14px; bottom: 12px; font-size: 11px; }
   .timeline { padding-top: 48px; }
   .grid { grid-template-columns: 1fr; gap: 22px; }

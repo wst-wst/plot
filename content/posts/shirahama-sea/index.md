@@ -2,7 +2,7 @@
 title: 前往白滨
 date: 2026-10-07
 location: 和歌山 · 白滨
-city: 大阪 · 白滨
+city: 日本 · 大阪
 tags: [大阪, 和歌山, 熊野古道]
 excerpt: 坐「黑潮号」JR从新宫前往白滨
 captions:

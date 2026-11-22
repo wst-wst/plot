@@ -33,7 +33,7 @@ const PLOG_POSTS = [
     "title": "前往白滨",
     "date": "2026-10-07",
     "location": "和歌山 · 白滨",
-    "city": "大阪 · 白滨",
+    "city": "日本 · 大阪",
     "tags": [
       "大阪",
       "和歌山",
@@ -94,6 +94,38 @@ const PLOG_POSTS = [
         "src": "assets/img/watermark/shirahama/05.jpg",
         "alt": "白滨悠然假期，豆の汤的早餐",
         "caption": "豆の汤的早餐"
+      }
+    ]
+  },
+  {
+    "id": "kii-katsuura",
+    "title": "纪伊胜浦的海",
+    "date": "2026-10-06",
+    "location": "和歌山 · 纪伊胜浦",
+    "city": "日本 · 大阪",
+    "tags": [
+      "大阪",
+      "和歌山",
+      "熊野古道",
+      "旅行",
+      "大海"
+    ],
+    "excerpt": "",
+    "body": [
+      "走完「大雲取越」，从熊野速玉大社到「那智」、再到「纪伊胜浦」，入住海边的「浦岛酒店」。",
+      "「日升馆」可以看到美丽的海景。",
+      "晚餐有金枪鱼刺身自助，吃得很美！"
+    ],
+    "photos": [
+      {
+        "src": "assets/img/watermark/kii-katsuura/01.jpg",
+        "alt": "纪伊胜浦的海，浦岛酒店的View",
+        "caption": "浦岛酒店的View"
+      },
+      {
+        "src": "assets/img/watermark/kii-katsuura/02.JPG",
+        "alt": "纪伊胜浦的海，金枪鱼刺身自助",
+        "caption": "金枪鱼刺身自助"
       }
     ]
   },

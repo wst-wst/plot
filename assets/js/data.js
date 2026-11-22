@@ -36,8 +36,8 @@ const PLOG_POSTS = [
     "city": "日本 · 大阪",
     "tags": [
       "大阪",
-      "和歌山",
-      "熊野古道"
+      "熊野古道",
+      "大海"
     ],
     "excerpt": "坐「黑潮号」JR从新宫前往白滨",
     "body": [
@@ -59,8 +59,8 @@ const PLOG_POSTS = [
     "city": "日本 · 大阪",
     "tags": [
       "大阪",
-      "和歌山",
-      "旅行"
+      "旅行",
+      "大海"
     ],
     "excerpt": "咖啡、日落和大海",
     "body": [
@@ -105,7 +105,6 @@ const PLOG_POSTS = [
     "city": "日本 · 大阪",
     "tags": [
       "大阪",
-      "和歌山",
       "熊野古道",
       "旅行",
       "大海"
@@ -137,7 +136,6 @@ const PLOG_POSTS = [
     "city": "日本 · 大阪",
     "tags": [
       "大阪",
-      "和歌山",
       "熊野古道",
       "徒步",
       "旅行"
@@ -159,6 +157,25 @@ const PLOG_POSTS = [
         "src": "assets/img/watermark/kumano-kodo-nakahechi/02.JPG",
         "alt": "熊野古道中边路徒步，「潮见峠越」休息所",
         "caption": "「潮见峠越」休息所"
+      }
+    ]
+  },
+  {
+    "id": "hangzhou-love-line-2nd",
+    "title": "第二次杭州爱心线！",
+    "date": "2026-09-06",
+    "location": "杭州 · 西湖",
+    "city": "杭州",
+    "tags": [
+      "徒步"
+    ],
+    "excerpt": "喝酒第二天真的不适合徒步",
+    "body": [],
+    "photos": [
+      {
+        "src": "assets/img/watermark/hangzhou-love-line-2nd/01.jpg",
+        "alt": "第二次杭州爱心线！，第二次爱心线徒步轨迹",
+        "caption": "第二次爱心线徒步轨迹"
       }
     ]
   },

@@ -3,7 +3,7 @@ title: 白滨悠然假期
 date: 2026-10-07
 location: 大阪 · 白滨
 city: 日本 · 大阪
-tags: [大阪, 和歌山, 旅行]
+tags: [大阪, 旅行, 大海]
 excerpt: 咖啡、日落和大海
 captions:
   - 円月岛日落

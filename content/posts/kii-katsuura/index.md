@@ -3,7 +3,7 @@ title: 纪伊胜浦的海
 date: 2026-10-06
 location: 和歌山 · 纪伊胜浦
 city: 日本 · 大阪
-tags: [大阪, 和歌山, 熊野古道, 旅行, 大海]
+tags: [大阪, 熊野古道, 旅行, 大海]
 excerpt: 
 captions:
   - 浦岛酒店的View

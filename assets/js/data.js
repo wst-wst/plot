@@ -176,6 +176,47 @@ const PLOG_POSTS = [
         "src": "assets/img/watermark/hangzhou-love-line-2nd/01.jpg",
         "alt": "第二次杭州爱心线！，第二次爱心线徒步轨迹",
         "caption": "第二次爱心线徒步轨迹"
+      },
+      {
+        "src": "assets/img/watermark/hangzhou-love-line-2nd/02.JPG",
+        "alt": "第二次杭州爱心线！，「泥靴」的辣子奶油天使面",
+        "caption": "「泥靴」的辣子奶油天使面"
+      }
+    ]
+  },
+  {
+    "id": "jeju-olle",
+    "title": "济州岛偶来小路徒步",
+    "date": "2026-06-18",
+    "location": "济州岛",
+    "city": "韩国 · 济州岛",
+    "tags": [
+      "旅行",
+      "徒步",
+      "大海"
+    ],
+    "excerpt": "Olle 100km达成！",
+    "body": [],
+    "photos": [
+      {
+        "src": "assets/img/watermark/jeju-olle/01.JPG",
+        "alt": "济州岛偶来小路徒步，城山日出峰",
+        "caption": "城山日出峰"
+      },
+      {
+        "src": "assets/img/watermark/jeju-olle/02.JPG",
+        "alt": "济州岛偶来小路徒步，1号线印章",
+        "caption": "1号线印章"
+      },
+      {
+        "src": "assets/img/watermark/jeju-olle/03.JPG",
+        "alt": "济州岛偶来小路徒步，牛岛",
+        "caption": "牛岛"
+      },
+      {
+        "src": "assets/img/watermark/jeju-olle/04.JPG",
+        "alt": "济州岛偶来小路徒步，1-1号线印章",
+        "caption": "1-1号线印章"
       }
     ]
   },

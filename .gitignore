@@ -5,3 +5,9 @@ __pycache__/
 *.HEIC
 *.heif
 *.HEIF
+
+# 原图只保留在本地，仓库里只提交 assets/img/watermark/ 下的水印图
+content/posts/**/*.[jJ][pP][gG]
+content/posts/**/*.[jJ][pP][eE][gG]
+content/posts/**/*.[pP][nN][gG]
+content/posts/**/*.[wW][eE][bB][pP]
